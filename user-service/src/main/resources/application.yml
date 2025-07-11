@@ -2,6 +2,8 @@ server:
   port: 8080
 
 spring:
+  config:
+    import: application-secret.yml  # 시크릿 키 숨기기
   application:
     name: USER-MANAGEMENT
   datasource:
@@ -17,11 +19,6 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
-jwt:
-  secret: LH9QZL8upsPBfuDY+Dkb1kT9DZIIUSuA2u4O6Lfi3mkEfeWtETpVTcR/8SMZdJWn/xNTuCQBE6rBvDXgnVmscQ==
-  expiration: 3600000 # 60분
-  refresh-expiration: 604800000 # 7일
 
 
 
