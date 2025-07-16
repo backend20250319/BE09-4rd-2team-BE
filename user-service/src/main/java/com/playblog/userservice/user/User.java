@@ -30,6 +30,7 @@ public class User {
   private String password;
 
   @Enumerated(EnumType.STRING)
+  @Builder.Default
   private Role role = Role.USER;
 
   public void setPassword(String password) {
