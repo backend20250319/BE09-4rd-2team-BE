@@ -63,15 +63,6 @@ class AuthServiceTest {
   void setUp() {
     MockitoAnnotations.openMocks(this);
 
-    // 실제 JwtTokenProvider 생성 (비밀키와 만료시간은 테스트용 값 입력)
-    jwtTokenProvider = new JwtTokenProvider();
-    ReflectionTestUtils.setField(jwtTokenProvider, "jwtSecret",
-        "LH9QZL8upsPBfuDY+Dkb1kT9DZIIUSuA2u4O6Lfi3mkEfeWtETpVTcR/8SMZdJWn/xNTuCQBE6rBvDXgnVmscQ==");  // 테스트용 비밀키
-    ReflectionTestUtils.setField(jwtTokenProvider, "accessTokenExpiration", 3600000L);    // 1시간
-    ReflectionTestUtils.setField(jwtTokenProvider, "refreshTokenExpiration", 86400000L);  // 24시간
-
-    jwtTokenProvider.init();
-
     // authService에 실제 JwtTokenProvider 주입 (기존 mock 대신)
     ReflectionTestUtils.setField(authService, "jwtTokenProvider", jwtTokenProvider);
   }
