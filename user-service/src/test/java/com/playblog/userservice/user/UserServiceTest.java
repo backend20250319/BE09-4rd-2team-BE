@@ -38,9 +38,10 @@ class UserServiceTest {
     // given
     String rawPassword = "password123";
     UserRegisterRequestDto dto = new UserRegisterRequestDto("newuser@example.com", rawPassword);
-
-    // when
-    userService.registerUser(dto);
+    // 1. 해당 사용사자 없으면 회원가입한다.
+    if (!userRepository.existsByEmailId("newuser@example.com")) {
+      userService.registerUser(dto);
+    }
 
     // then
     User savedUser = userRepository.findByEmailId(dto.getEmailId())
