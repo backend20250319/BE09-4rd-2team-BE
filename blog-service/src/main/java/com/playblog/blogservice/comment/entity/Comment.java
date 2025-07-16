@@ -37,6 +37,7 @@ public class Comment {
     private String content;
 
     @Column(name = "is_secret", nullable = false)
+    @Builder.Default
     private Boolean isSecret = false;
 
     @Column(name = "is_deleted", nullable = false)
@@ -50,16 +51,6 @@ public class Comment {
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
-
-    @Builder
-    public Comment(Post post, User author, String content, Boolean isSecret) {
-        this.post = post;
-        this.author = author;
-        this.content = content;
-        this.isSecret = isSecret != null ? isSecret : false; // null 체크
-        this.isDeleted = false; // 생성시 기본값
-        this.likeCount = 0L; // 생성시 기본값
-    }
 
     public void updateContent(String content, Boolean isSecret) {
         this.content = content; // 댓글 수정
