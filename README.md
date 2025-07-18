@@ -134,7 +134,7 @@ RESTful API를 통해 **일관된 HTTP 기반으로한 인터페이스 사용을
 
 ### MSA 아키텍처 설계서
 
-
+<img width="751" height="626" alt="Image" src="https://github.com/user-attachments/assets/ca2b00c3-e9f5-45e8-9368-d6a41e6d1f02" />
 
 ---
 
